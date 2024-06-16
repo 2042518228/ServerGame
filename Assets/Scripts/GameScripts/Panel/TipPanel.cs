@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 
+using TMPro;
 public class TipPanel :BaseUIPanel
 {
     public TextMeshProUGUI tipText;
@@ -10,6 +7,16 @@ public class TipPanel :BaseUIPanel
     {
         base.Awake();
         alphaSpeed=0.5f;
+      
+    }
+
+    protected override void ComponentAddEvent()
+    {
+        
+    }
+
+    protected override void FindComponent()
+    {
         tipText=transform.Find("TipText").GetComponent<TextMeshProUGUI>();
     }
 

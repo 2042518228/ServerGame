@@ -1,10 +1,12 @@
 using System;
-using System.Collections.Generic;
+ 
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+ 
 
 public abstract class BaseUIPanel : MonoBehaviour
 {
@@ -18,12 +20,23 @@ public abstract class BaseUIPanel : MonoBehaviour
            canvasGroup= transform.AddComponent<CanvasGroup>();
             
          }
+         FindComponent();
+         ComponentAddEvent();
      }
     protected virtual void Start()
     {
         Init();
+        
     }
-
+    
+    /// <summary>
+    /// 事件注册
+    /// </summary>
+protected abstract void ComponentAddEvent();
+    /// <summary>
+    /// 查找组件
+    /// </summary>
+    protected abstract void FindComponent();
     /// <summary>
     /// 初始化
     /// </summary>
@@ -63,4 +76,23 @@ protected UnityAction onHideAction;
             }
         }
     }
+
+   public virtual void  DOTweenShow(float speed)
+    {
+        alphaSpeed=speed;
+        transform.localScale=Vector3.zero;
+        transform.DOScale(1, 0.2f);
+        transform.localPosition = new Vector3(1000, 0, 0);
+        transform.DOLocalMove(Vector3.zero, 0.2f);  
+    }
+   public virtual void  DOTweenHide()
+    {
+        transform.DOScale(Vector3.zero, 0.4f);
+        TweenerCore<Vector3, Vector3, VectorOptions> tweenerCore =transform.DOLocalMove(new Vector3(1000,0,0), 0.2f);  
+        tweenerCore.OnComplete(() =>
+        {
+            UIManagerModule.Instance.HideUIPanel(this);
+        });
+    }
+    
 }

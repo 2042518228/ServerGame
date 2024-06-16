@@ -31,6 +31,16 @@ public class GameOverPanel : BaseUIPanel
        
     }
 
+    protected override void ComponentAddEvent()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void FindComponent()
+    {
+        throw new NotImplementedException();
+    }
+
     protected override void Init()
     {
         Cursor.lockState = CursorLockMode.None;

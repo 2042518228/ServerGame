@@ -51,6 +51,16 @@ public int SceneId
         InitializeButtons();
     }
 
+    protected override void ComponentAddEvent()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void FindComponent()
+    {
+        throw new NotImplementedException();
+    }
+
     private void InitializeUIElements()
     {
         Transform sceneInfotTransform= transform.Find("SceneInfo");

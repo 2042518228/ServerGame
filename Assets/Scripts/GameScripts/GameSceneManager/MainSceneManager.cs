@@ -9,8 +9,4 @@ public class MainSceneManager : MonoBehaviour
     {
      UIManagerModule.Instance.ShowUIPanel<BeginPanel>();   
     }
-    private void Start()
-    {
-        
-    }
 }

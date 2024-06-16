@@ -21,6 +21,16 @@ public class GamePanel :BaseUIPanel
         InitializeUIElements();
     }
 
+    protected override void ComponentAddEvent()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void FindComponent()
+    {
+        throw new NotImplementedException();
+    }
+
     public Transform fortsTrasform;
     private void InitializeUIElements()
     {

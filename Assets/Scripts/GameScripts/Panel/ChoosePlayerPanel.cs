@@ -29,7 +29,17 @@ public class ChoosePlayerPanel : BaseUIPanel
         InitializeButtons();
         InitializeUIElements();
     }
-    
+
+    protected override void ComponentAddEvent()
+    {
+       
+    }
+
+    protected override void FindComponent()
+    {
+       
+    }
+
     protected override void Init()
     {
         InitializePlayerData();

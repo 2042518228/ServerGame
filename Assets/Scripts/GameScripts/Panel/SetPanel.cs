@@ -17,7 +17,16 @@ public class SetPanel:BaseUIPanel
         base.Start();
     }
 
-   
+    protected override void ComponentAddEvent()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void FindComponent()
+    {
+        throw new System.NotImplementedException();
+    }
+
 
     protected override void Awake()
     {

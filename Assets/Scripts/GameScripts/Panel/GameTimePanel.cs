@@ -13,6 +13,16 @@ public class GameTimePanel :BaseUIPanel
         tipText=transform.Find("TipText").GetComponent<TextMeshProUGUI>();
     }
 
+    protected override void ComponentAddEvent()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void FindComponent()
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void Init()
     {
         

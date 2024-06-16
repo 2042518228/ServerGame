@@ -6,35 +6,32 @@ using UnityEngine.UI;
 
 public class BeginPanel : BaseUIPanel
 {
-    public Button signBtn;
-    public Button quitBtn;
-    public Button settingBtn;
+      Button signBtn;
+      Button quitBtn;
+      Button settingBtn;
     
-    protected override void Start()
+   
+    protected override void ComponentAddEvent()
     {
-        base.Start();
+       signBtn.onClick.AddListener(() =>
+       {
+           UIManagerModule.Instance.ShowUIPanel<SginPanel>();
+           DOTweenHide();
+       });
+       settingBtn.onClick.AddListener(() => { UIManagerModule.Instance.ShowUIPanel<SetPanel>(); });
+
+       quitBtn.onClick.AddListener(() => { Application.Quit(); });
     }
 
-     
-
-    protected override void Awake()
-    { 
+    protected override void FindComponent()
+    {
         signBtn = transform.Find("SignBtn").GetComponent<Button>();
         settingBtn = transform.Find("SettingBtn").GetComponent<Button>();
         quitBtn= transform.Find("QuitBtn").GetComponent<Button>(); 
-        base.Awake();
     }
-
-    protected override void Update()
-    {
-        base.Update();
-    }
-
+ 
     protected override void Init()
     {
-        signBtn.onClick.AddListener(() => { });
-        settingBtn.onClick.AddListener(() => { UIManagerModule.Instance.ShowUIPanel<SetPanel>(); });
-
-        quitBtn.onClick.AddListener(() => { Application.Quit(); });
+       
     }
 }
