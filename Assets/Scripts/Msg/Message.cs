@@ -37,7 +37,7 @@ public class Message
         }
     }
 
-    public void  ReadData(int newDataAmount,Action< RequestCode,string> action)
+    public void  ReadData(int newDataAmount,Action< ActionCode,string> action)
     {
         startIndex += newDataAmount;
         while ( true)
@@ -49,9 +49,9 @@ public class Message
             int count = BitConverter.ToInt32(data, 0);
             if (startIndex-4>count)
             {
-                RequestCode requestCode = (RequestCode)BitConverter.ToInt32(data, 4);
+                ActionCode actionCode = (ActionCode)BitConverter.ToInt32(data, 4);
                 string message = Encoding.UTF8.GetString(data, 8, startIndex-4);
-                action(requestCode,message);
+                action(actionCode,message);
                 Array.Copy(data, count+4,data, 0, startIndex-4-count);
                 startIndex -= count + 4;
             }
@@ -61,9 +61,9 @@ public class Message
             }
         }
     }
-     public static byte[] WriteData(RequestCode requestCode,string message)
+     public static byte[] WriteData(ActionCode actionCode,string message)
     {
-       byte[] requestCodeBytes = BitConverter.GetBytes((int)requestCode);
+       byte[] requestCodeBytes = BitConverter.GetBytes((int)actionCode);
        byte[] messageBytes = Encoding.UTF8.GetBytes(message);
        int count = requestCodeBytes.Length+messageBytes.Length;
        byte[] countBytes = BitConverter.GetBytes(count);

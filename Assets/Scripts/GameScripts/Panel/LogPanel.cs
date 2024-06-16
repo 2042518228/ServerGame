@@ -10,7 +10,7 @@
         InputField userNameIF;
         InputField passWordIF;
         InputField repeatPassWordIF;
-      
+      LoginRequest loginRequest;
         protected override void ComponentAddEvent()
         {
             quitBtn.onClick.AddListener(() =>
@@ -22,7 +22,7 @@
         protected override void FindComponent()
         {
             Transform bk = transform.Find("Bk");
-            
+            loginRequest = transform.GetComponent<LoginRequest>();
             logBtn = bk.Find("LogBtn").GetComponent<Button>();
             quitBtn = bk.Find("QuitBtn").GetComponent<Button>();
             userNameIF = bk.Find("UserNameIF").GetComponent<InputField>();

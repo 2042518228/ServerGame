@@ -38,13 +38,13 @@
             }
         }
 
-        private void OnReceiveRequest(RequestCode requestCode, string serverMessage)
+        private void OnReceiveRequest(ActionCode actionCode, string serverMessage)
         {
-         GameFacade.Instance.HandleRequest(requestCode,serverMessage);   
+         GameFacade.Instance.HandleRequest(actionCode,serverMessage);   
         }
-        public void SendRequest( RequestCode requestCode,string clientMessage)
+        public void SendRequest(ActionCode actionCode,string clientMessage)
         {
-            byte[] data = Message.WriteData(requestCode,clientMessage); 
+            byte[] data = Message.WriteData(actionCode,clientMessage); 
             socket.BeginSend(data,0,data.Length,SocketFlags.None, SendCallback, null);
         }
 

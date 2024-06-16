@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 2406383711670670469}
   - component: {fileID: 865890106754887897}
   - component: {fileID: 9119704546555938235}
+  - component: {fileID: 6319880498553511280}
   m_Layer: 5
   m_Name: SginPanel
   m_TagString: Untagged
@@ -451,11 +452,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e396c2a7823e4eb9b3e15b979f648437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signBtn: {fileID: 0}
-  logBtn: {fileID: 0}
-  quitBtn: {fileID: 0}
-  userNameIF: {fileID: 0}
-  passWordIF: {fileID: 0}
+--- !u!114 &6319880498553511280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430630788908185169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15d202a5ae84aaa9776a78383ddce19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requestCode: 0
+  actionCode: 0
 --- !u!1 &2913652177278660905
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,23 +5,23 @@
 
     public class RequestManager:BaseManager
     {
-        Dictionary<RequestCode,BaseRequset> requestDict;
+        Dictionary<ActionCode,BaseRequset> requestDict;
         override public void OnInit()
         {
-            requestDict = new Dictionary<RequestCode, BaseRequset>();
+            requestDict = new Dictionary<ActionCode, BaseRequset>();
         }
         override public void OnDestory()
         {
          requestDict.Clear();   
         }
-        public void AddRequest(RequestCode requestCode,BaseRequset baseRequset)
+        public void AddRequest(ActionCode requestCode,BaseRequset baseRequset)
         {
             if (!requestDict.ContainsKey(requestCode))
             {
                 requestDict.Add(requestCode,baseRequset);
             }
         }
-        public void HandleRequest(RequestCode requestCode,string message)
+        public void HandleRequest(ActionCode requestCode,string message)
         {
             if (requestDict.TryGetValue(requestCode, out BaseRequset baseRequset))
             {
@@ -32,7 +32,7 @@
                 Debug.Log("没有找到对应的请求");
             }
         }
-        public void RemoveRequest(RequestCode requestCode)
+        public void RemoveRequest(ActionCode requestCode)
         {
             if (requestDict.ContainsKey(requestCode))
             {

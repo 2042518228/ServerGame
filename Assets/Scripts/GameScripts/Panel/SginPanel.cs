@@ -8,11 +8,11 @@
          Button signBtn;
          Button logBtn;
          Button quitBtn;
-         
          TMP_InputField userNameIF;
          TMP_InputField passWordIF;
-      
-        protected override void ComponentAddEvent()
+         private LoginRequest loginRequest;
+
+         protected override void ComponentAddEvent()
         {
            quitBtn.onClick.AddListener(() =>
            {
@@ -45,11 +45,16 @@
             {
                 UIManagerModule.Instance.ShowUIPanel<TipPanel>().ShowTip(msg);
             }
+            else
+            {
+                loginRequest.SendRequest(userNameIF.text,passWordIF.text);
+            }
         }
 
         protected override void FindComponent()
         {
             Transform bk = transform.Find("Bk");
+            loginRequest = transform.GetComponent<LoginRequest>();
             signBtn =bk.Find("SignBtn").GetComponent<Button>();
             logBtn = bk.Find("LogBtn").GetComponent<Button>();
             quitBtn = bk.Find("QuitBtn").GetComponent<Button>();

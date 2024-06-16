@@ -35,21 +35,26 @@
             clientManager.OnDestory();
             requestManager.OnDestory();
         }
-        public void AddRequest( RequestCode requestCode,BaseRequset baseRequset)
+        public void AddRequest( ActionCode requestCode,BaseRequset baseRequset)
         {
             requestManager.AddRequest(requestCode,baseRequset);
         }
-        public void RemoveRequest(RequestCode requestCode)
+        public void RemoveRequest(ActionCode requestCode)
         {
             requestManager.RemoveRequest(requestCode);
         }   
-        public void HandleRequest(RequestCode requestCode,string message)
+        public void HandleRequest(ActionCode requestCode,string message)
         {
             requestManager.HandleRequest(requestCode,message);
         }
         private void OnDestroy()
         {
             DestroyManager();
+        }
+
+        public void SendRequest(RequestCode requestCode, ActionCode actionCode, string clientMessage)
+        {
+            
         }
     }
      

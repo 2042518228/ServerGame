@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 2406383711670670469}
   - component: {fileID: 865890106754887897}
   - component: {fileID: 3501277809607037232}
+  - component: {fileID: 1871364734368957790}
   m_Layer: 5
   m_Name: LogPanel
   m_TagString: Untagged
@@ -627,6 +628,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7f3876976843f5b01cf2fa690a5356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1871364734368957790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430630788908185169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15d202a5ae84aaa9776a78383ddce19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requestCode: 0
+  actionCode: 0
 --- !u!1 &2913652177278660905
 GameObject:
   m_ObjectHideFlags: 0
